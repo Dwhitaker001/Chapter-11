@@ -12,17 +12,17 @@
 
 
 # create the class Dwelling, the __init__ method should accept number_of_rooms, square_feet, floors
-class Automobile:
+class Dwelling:
     def __init__(self, number_of_rooms, square_feet, floors):
         self.__number_of_rooms = number_of_rooms
         self.__square_feet = square_feet
         self.__floors = floors
 
 # add the mutators for all of the data attributes (number_of_rooms, square_feet, floors)
-    def set_number_of_rooms(self, number_of_rooms):
+    def set_rooms(self, number_of_rooms):
         self.__number_of_rooms = number_of_rooms
 
-    def set_square_feet(self, square_feet):
+    def set_sqft(self, square_feet):
         self.__square_feet = square_feet
 
     def set_floors(self, floors):
@@ -30,10 +30,10 @@ class Automobile:
 
 
 # add the accessors for all of  the data attributes
-    def get_number_of_rooms(self):
+    def get_rooms(self):
         return self.__number_of_rooms
 
-    def get_square_feet(self):
+    def get_sqft(self):
         return self.__square_feet
 
     def get_floors(self):
@@ -41,12 +41,12 @@ class Automobile:
 
 
 # Create the class Single_family_home as a sub class of Dwelling
-class SingleFamilyHome(Automobile):
+class SingleFamilyHome(Dwelling):
     # The __init__ method should accept number_of_rooms, square_feet, floors, garage_type, yard_size
     def __init__(self, number_of_rooms, square_feet, floors, garage_type, yard_size):
 
         # call the superclass of Dwelling and pass the required arguments, remember to include self
-        Automobile.__init__(self, number_of_rooms, square_feet, floors)
+        Dwelling.__init__(self, number_of_rooms, square_feet, floors)
 
 # initialize the garage_type and yard_size attributes
         self.__garage_type = garage_type
@@ -73,12 +73,13 @@ def main():
     # create an object from the Single_family_home class with the following information:
     # 6 rooms, 1200 square feet, 1 floor, single car garage, .25 acres
     # Display the data using the accessor methods
-    home = SingleFamilyHome('6', '1200', '1', 'single car garage', '.25')
-    print("Number of rooms:", home.get_number_of_rooms())
-    print("Square Feet:", home.get_square_feet())
-    print("Number of floors:", home.get_floors())
+    home = SingleFamilyHome('6', '1200', '1', 'single car garage', '.25 acres')
+    print("This house is a single family home with")
+    print(home.get_rooms(), "rooms over", home.get_floors(), "floor(s)", end="")
+    print(" for the total of", home.get_sqft(), "sqft.")
     print("Garage Type:", home.get_garage_type())
     print("Yard Size:", home.get_yard_size())
+    print("\n")
 
 # create the main function
 
@@ -117,7 +118,7 @@ class Bird(Mammal):
         Mammal.__init__(self, 'Bird')
 
     def make_sound(self):
-        print("Tweet! Tweet!")
+        print("Squawk! Squawk!")
 
 
 # Follow the example in program 11-10 (no need to import, use main2 instead of main
@@ -142,4 +143,4 @@ def show_mammal_info(creature):
     creature.make_sound()
 
 
-main()
+main2()
