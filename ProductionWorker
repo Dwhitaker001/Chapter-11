@@ -66,7 +66,7 @@ def main():
         print("Shift: Night")
     else:
         print("Not found.")
-    print("Pay Rate: ", employee.get_shift_number())
-    
+    print("Pay Rate: ", employee.get_hourly_pay())
+
 
 main()
